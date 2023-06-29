@@ -1,4 +1,4 @@
-interface Podcast {
+export interface PodcastsApiResponse {
     feed: {
       author: {
         name: {
@@ -8,11 +8,11 @@ interface Podcast {
           label: string;
         };
       };
-      entry: PodcastEntry[];
+      entry: Podcast[];
     };
   }
   
-  interface PodcastEntry {
+  export interface Podcast {
     "im:name": {
       label: string;
     };
