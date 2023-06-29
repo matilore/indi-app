@@ -1,5 +1,5 @@
 import { PodcastRepositoryImpl } from './podcastRepositoryImpl';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 describe('PodcastRepositoryImpl', () => {
   it('should have getAllPodcasts function', () => {
