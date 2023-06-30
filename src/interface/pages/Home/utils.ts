@@ -1,5 +1,5 @@
 import { Podcast } from "../../../domain/interfaces";
-
+import { LOCAL_STORAGE_ITEM_NAME } from "./constants";
 export const setExpirationLocalStorageItem = (hours: number) =>
   new Date().getTime() + hours * 60 * 60 * 1000;
 
@@ -14,8 +14,9 @@ export const checkDataExpiration = ({
 };
 
 export const getLocalStorageData = () => {
-  const stringifiedPodcastsData: string | null =
-    localStorage.getItem("podcasts");
+  const stringifiedPodcastsData: string | null = localStorage.getItem(
+    LOCAL_STORAGE_ITEM_NAME
+  );
   if (!stringifiedPodcastsData) return null;
   const res = JSON.parse(stringifiedPodcastsData);
   const isExpired = checkDataExpiration({
@@ -24,4 +25,11 @@ export const getLocalStorageData = () => {
   return !isExpired ? res.data : null;
 };
 
-export const setLocalStorageData = (podcasts: Podcast[]) => {};
+export const setLocalStorageData = (podcasts: Podcast[]) => {
+  const localStorageItem = {
+    expirationDate: setExpirationLocalStorageItem(24),
+    data: podcasts,
+  };
+  const stringifiedPodcasts = JSON.stringify(localStorageItem);
+  localStorage.setItem(LOCAL_STORAGE_ITEM_NAME, stringifiedPodcasts);
+};
