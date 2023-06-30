@@ -20,7 +20,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@/interface/*": ["src/interface/*"],
+      "@/application/*": ["src/application/*"],
+      "@/domain/*": ["src/domain/*"],
+      "@/infrastructure/*": ["src/infrastructure/*"]
+
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,4 +1,4 @@
-import { Podcast } from "../../../domain/interfaces";
+import { Podcast } from "@/domain/interfaces";
 import { LOCAL_STORAGE_ITEM_NAME } from "./constants";
 export const setExpirationLocalStorageItem = (hours: number) =>
   new Date().getTime() + hours * 60 * 60 * 1000;

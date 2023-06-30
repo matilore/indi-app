@@ -1,4 +1,4 @@
-import { Podcast, PodcastRepository } from "../../../domain/interfaces";
+import { Podcast, PodcastRepository } from "@/domain/interfaces";
 import { vi } from "vitest";
 import { MOCKED_RESPONSE } from "../constants";
 

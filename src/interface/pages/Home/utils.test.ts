@@ -3,7 +3,7 @@ import {
   checkDataExpiration,
   setLocalStorageData,
 } from "./utils";
-import { MOCKED_RESPONSE } from "../../../infrastructure/api/constants";
+import { MOCKED_RESPONSE } from "@/infrastructure/api/constants";
 import { LOCAL_STORAGE_ITEM_NAME } from "./constants";
 
 describe("utils", () => {

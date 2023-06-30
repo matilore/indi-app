@@ -5,7 +5,15 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/interface/*": ["src/interface/*"],
+      "@/application/*": ["src/application/*"],
+      "@/domain/*": ["src/domain/*"],
+      "@/infrastructure/*": ["src/infrastructure/*"]
+
+    }
   },
   "include": ["vite.config.ts"]
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PodcastRepository, Podcast } from "../../../../domain/interfaces";
+import { PodcastRepository, Podcast } from "@/domain/interfaces";
 
 export const useGetPodcasts = (
   getPodcastsResponse: (repository: PodcastRepository) => Promise<Podcast[]>,
