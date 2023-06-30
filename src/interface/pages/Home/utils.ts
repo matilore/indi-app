@@ -1,3 +1,5 @@
+import { Podcast } from "../../../domain/interfaces";
+
 export const setExpirationLocalStorageItem = (hours: number) =>
   new Date().getTime() + hours * 60 * 60 * 1000;
 
@@ -21,3 +23,5 @@ export const getLocalStorageData = () => {
   });
   return !isExpired ? res.data : null;
 };
+
+export const setLocalStorageData = (podcasts: Podcast[]) => {};
