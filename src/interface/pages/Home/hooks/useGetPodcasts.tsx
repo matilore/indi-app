@@ -12,6 +12,7 @@ export const useGetPodcasts = (
       const podcastList = await getPodcastsResponse(podcastRepository);
       setPodcasts(podcastList);
     };
+
     getPodcasts();
   });
 
