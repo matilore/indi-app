@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PodcastRepository, Podcast } from "@/domain/interfaces";
+import { getLocalStorageData } from "../utils";
 
 export const useGetPodcasts = (
   getPodcastsResponse: (repository: PodcastRepository) => Promise<Podcast[]>,
@@ -13,7 +14,11 @@ export const useGetPodcasts = (
       setPodcasts(podcastList);
     };
 
-    getPodcasts();
+    const storedData = getLocalStorageData();
+
+    if (!storedData) {
+      getPodcasts();
+    }
   });
 
   return { podcasts };
