@@ -1,7 +1,8 @@
 import { Podcast } from "@/domain/interfaces";
 
-export const REACT_APP_API_PODCASTS_URL =
-  "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
+export const PODCAST_NUMBER = 100;
+
+export const REACT_APP_API_PODCASTS_URL = `https://itunes.apple.com/us/rss/toppodcasts/limit=${PODCAST_NUMBER}/genre=1310/json`;
 
 export const MOCKED_RESPONSE: Podcast[] = [
   {
