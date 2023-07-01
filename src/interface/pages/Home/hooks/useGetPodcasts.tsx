@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PodcastRepository, Podcast } from "@/domain/interfaces";
-import { getLocalStorageData } from "../utils";
+import { getLocalStorageData, setLocalStorageData } from "../utils";
 
 export const useGetPodcasts = (
   getPodcastsResponse: (repository: PodcastRepository) => Promise<Podcast[]>,
@@ -11,6 +11,7 @@ export const useGetPodcasts = (
   useEffect(() => {
     const getPodcasts = async () => {
       const podcastList = await getPodcastsResponse(podcastRepository);
+      setLocalStorageData(podcastList);
       setPodcasts(podcastList);
     };
 

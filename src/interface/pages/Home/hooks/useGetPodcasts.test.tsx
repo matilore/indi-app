@@ -1,4 +1,4 @@
-import { renderHook, waitFor, act } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 import { getPodcastsResponse } from "@/application/useCases/getPodcasts";
 import { PodcastRepositoryImpl } from "@/infrastructure/api/podcastRepositoryImpl";
 import { useGetPodcasts } from "./useGetPodcasts";
