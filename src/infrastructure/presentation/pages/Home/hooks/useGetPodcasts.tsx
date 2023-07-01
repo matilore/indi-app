@@ -19,8 +19,10 @@ export const useGetPodcasts = (
 
     if (!storedData) {
       getPodcasts();
+    } else {
+      setPodcasts(storedData);
     }
-  });
+  }, []);
 
   return { podcasts };
 };
