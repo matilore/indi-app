@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
-
-import {PodcastRepositoryImpl} from './infrastructure/api/podcastRepositoryImpl'
+import { StrictMode } from "react";
+import { RouterProvider } from "react-router-dom";
+import { router } from "@/presentation/config/routes";
 
 function App() {
-
-
-  return null
-  
+  return (
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
 }
 
-export default App
+export default App;

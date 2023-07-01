@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Router > should create a router with the correct configuration 1`] = `
+{
+  "element": <Home />,
+  "path": "/",
+}
+`;

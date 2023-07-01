@@ -23,7 +23,7 @@
     "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {
-      "@/interface/*": ["src/interface/*"],
+      "@/presentation/*": ["src/infrastructure/presentation/*"],
       "@/application/*": ["src/application/*"],
       "@/domain/*": ["src/domain/*"],
       "@/infrastructure/*": ["src/infrastructure/*"]

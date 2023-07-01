@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/interface/*": ["src/interface/*"],
+      "@/interface/*": ["src/infrastructure/presentation/*"],
       "@/application/*": ["src/application/*"],
       "@/domain/*": ["src/domain/*"],
       "@/infrastructure/*": ["src/infrastructure/*"]
