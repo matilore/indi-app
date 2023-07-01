@@ -1,13 +1,8 @@
-import { StrictMode } from "react";
 import { RouterProvider } from "react-router-dom";
-import { router } from "@/presentation/config/routes";
+import { router } from "@/infrastructure/presentation/config/routes";
 
 function App() {
-  return (
-    <StrictMode>
-      <RouterProvider router={router} />
-    </StrictMode>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
