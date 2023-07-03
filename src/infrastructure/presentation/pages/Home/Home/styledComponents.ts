@@ -7,8 +7,9 @@ export const MainWrapper = styled.div`
 `;
 
 export const PodcastList = styled.div`
-  width: 70%;
+  max-width: 80%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
 `;
@@ -39,11 +40,18 @@ export const PodcastDetailsWrapper = styled.div`
   align-items: center;
 `;
 
-export const PodcastImage = styled.img`
+export const PodcastImageContainer = styled.div`
   position: relative;
   top: -42px;
   border-radius: 50%;
   width: 88px;
   height: 88px;
   border: 1px solid black;
+  z-index: 2;
+  overflow: hidden;
+`;
+
+export const PodcastImage = styled.img`
+  width: 100%;
+  height: 100%;
 `;

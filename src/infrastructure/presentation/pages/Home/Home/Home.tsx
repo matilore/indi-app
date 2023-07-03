@@ -6,10 +6,10 @@ import {
   PodcastCard,
   PodcastImageWrapper,
   PodcastDetailsWrapper,
-  PodcastImage,
   PodcastList,
   MainWrapper,
 } from "./styledComponents";
+import { PodcastCardImage } from "./components";
 import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
 const podcastRepository = new PodcastRepositoryImpl();
@@ -22,9 +22,9 @@ export const Home = () => {
         {podcasts.map((podcast: Podcast) => (
           <PodcastCard data-testid={"podcast-card"}>
             <PodcastImageWrapper>
-              <PodcastImage
+              <PodcastCardImage
                 src={podcast["im:image"][2].label}
-                aria-label={`${podcast.title.label} image`}
+                title={`${podcast.title.label} image`}
               />
             </PodcastImageWrapper>
             <PodcastDetailsWrapper>
