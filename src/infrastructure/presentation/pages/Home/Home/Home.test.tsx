@@ -21,14 +21,14 @@ describe("Home", () => {
 
   it("should display podcast card with a title", async () => {
     const { findByText } = render(<Home />);
-    const podcastTitle = await findByText(MOCKED_RESPONSE[0].title.label);
+    const podcastTitle = await findByText(MOCKED_RESPONSE[0]["im:name"].label);
     expect(podcastTitle).toBeDefined();
   });
 
   it("should display podcast card with the author", async () => {
     const { findByText } = render(<Home />);
     const podcastAuthor = await findByText(
-      MOCKED_RESPONSE[0]["im:artist"].label
+      `Author: ${MOCKED_RESPONSE[0]["im:artist"].label}`
     );
     expect(podcastAuthor).toBeDefined();
   });

@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         "@/domain": "/src/domain",
         "@/application": "/src/application",
-        "@/presentation": "/src/presentation",
+        "@/presentation": "/src/infrastructure/presentation",
         "@/infrastructure": "/src/infrastructure",
       },
     },
