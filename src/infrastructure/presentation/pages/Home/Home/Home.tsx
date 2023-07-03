@@ -13,6 +13,7 @@ import { PodcastCardImage } from "./components";
 import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
 import { Header } from "@/presentation/components/Header";
+import { SearchBar } from "@/presentation/components/SearchBar";
 const podcastRepository = new PodcastRepositoryImpl();
 
 export const Home = () => {
@@ -20,6 +21,7 @@ export const Home = () => {
   return (
     <MainWrapper>
       <Header />
+      <SearchBar podcastNumber={podcasts.length} />
       <PodcastList>
         {podcasts.map((podcast: Podcast) => (
           <PodcastCard
