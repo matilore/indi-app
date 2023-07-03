@@ -2,10 +2,12 @@ import { Home } from "./Home";
 import { render } from "@testing-library/react";
 import { MOCKED_RESPONSE } from "@/infrastructure/api/constants";
 import { MemoryRouter } from "react-router-dom";
+import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
 
 vi.mock("@/infrastructure/api/podcastRepositoryImpl");
 
 describe("Home", () => {
+  const podcast = new PodcastListAdapter(MOCKED_RESPONSE[0]).toJSON();
   it("should display podcast cards", async () => {
     const { findAllByTestId } = render(
       <MemoryRouter>
@@ -23,7 +25,7 @@ describe("Home", () => {
       </MemoryRouter>
     );
     const podcastImage = await findByRole("img", {
-      name: `${MOCKED_RESPONSE[0].title.label} image`,
+      name: `${podcast.title} image`,
     });
     expect(podcastImage).toBeDefined();
   });
@@ -34,7 +36,7 @@ describe("Home", () => {
         <Home />
       </MemoryRouter>
     );
-    const podcastTitle = await findByText(MOCKED_RESPONSE[0]["im:name"].label);
+    const podcastTitle = await findByText(podcast.title);
     expect(podcastTitle).toBeDefined();
   });
 
@@ -44,9 +46,7 @@ describe("Home", () => {
         <Home />
       </MemoryRouter>
     );
-    const podcastAuthor = await findByText(
-      `Author: ${MOCKED_RESPONSE[0]["im:artist"].label}`
-    );
+    const podcastAuthor = await findByText(`Author: ${podcast.author}`);
     expect(podcastAuthor).toBeDefined();
   });
 });

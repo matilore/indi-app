@@ -1,7 +1,8 @@
 import { useGetPodcasts } from "../hooks/useGetPodcasts";
 import { getPodcastsResponse } from "@/application/useCases/getPodcasts";
-import { Podcast } from "@/domain/interfaces";
 import { PodcastRepositoryImpl } from "@/infrastructure/api/podcastRepositoryImpl";
+import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
+import { PodcastListItem } from "@/presentation/adapters/podcast/contracts";
 import {
   PodcastCard,
   PodcastImageWrapper,
@@ -17,33 +18,31 @@ import { SearchBar } from "@/presentation/components/SearchBar";
 const podcastRepository = new PodcastRepositoryImpl();
 
 export const Home = () => {
-  const { podcasts } = useGetPodcasts(getPodcastsResponse, podcastRepository);
+  const { podcasts } = useGetPodcasts(
+    getPodcastsResponse,
+    podcastRepository,
+    PodcastListAdapter
+  );
   return (
     <MainWrapper>
       <Header />
       <SearchBar podcastNumber={podcasts.length} />
       <PodcastList>
-        {podcasts.map((podcast: Podcast) => (
-          <PodcastCard
-            data-testid={"podcast-card"}
-            key={podcast["im:name"].label}
-          >
+        {podcasts.map(({ img, title, author }: PodcastListItem) => (
+          <PodcastCard data-testid={"podcast-card"} key={title}>
             <PodcastImageWrapper>
-              <PodcastCardImage
-                src={podcast["im:image"][2].label}
-                title={`${podcast.title.label} image`}
-              />
+              <PodcastCardImage src={img} title={`${title} image`} />
             </PodcastImageWrapper>
             <PodcastDetailsWrapper>
               <Text ellipsis={true} textAlign={"center"}>
-                {podcast["im:name"].label}
+                {title}
               </Text>
               <Text
                 textAlign={"center"}
                 ellipsis={true}
                 fontSize={"small"}
                 color={COLORS.DARK_GREY}
-              >{`Author: ${podcast["im:artist"].label}`}</Text>
+              >{`Author: ${author}`}</Text>
             </PodcastDetailsWrapper>
           </PodcastCard>
         ))}

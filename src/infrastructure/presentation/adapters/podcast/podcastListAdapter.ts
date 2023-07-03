@@ -1,5 +1,5 @@
 import { Podcast } from "@/domain/interfaces";
-import { PodcastList } from "./contracts";
+import { PodcastListItem } from "./contracts";
 
 export class PodcastListAdapter {
   private podcastFromApi: Podcast;
@@ -20,7 +20,7 @@ export class PodcastListAdapter {
     return this.podcastFromApi["im:artist"].label;
   }
 
-  toJSON(): PodcastList {
+  toJSON(): PodcastListItem {
     return {
       img: this.img,
       title: this.title,

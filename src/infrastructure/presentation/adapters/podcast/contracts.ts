@@ -1,4 +1,4 @@
-export interface PodcastList {
+export interface PodcastListItem {
   img: string;
   title: string;
   author: string;
