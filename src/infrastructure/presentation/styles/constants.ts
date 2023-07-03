@@ -2,12 +2,14 @@ const BLACK = "#000000";
 const GREY = "#6A6F85";
 const WHITE = "#FFFFFF";
 const LIGHT_GREY = "#FAFAFC;";
+const BLUE = "#2596be";
 
 export const COLORS = {
   BLACK,
   GREY,
   WHITE,
   LIGHT_GREY,
+  BLUE,
 };
 
 export const FONT_SIZES = {
