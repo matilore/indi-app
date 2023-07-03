@@ -1,5 +1,6 @@
 const BLACK = "#000000";
-const GREY = "#6A6F85";
+const DARK_GREY = "#6A6F85";
+const GREY = "#B4BABD";
 const WHITE = "#FFFFFF";
 const LIGHT_GREY = "#FAFAFC;";
 const BLUE = "#2596be";
@@ -7,6 +8,7 @@ const BLUE = "#2596be";
 export const COLORS = {
   BLACK,
   GREY,
+  DARK_GREY,
   WHITE,
   LIGHT_GREY,
   BLUE,

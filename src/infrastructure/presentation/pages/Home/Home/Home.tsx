@@ -12,12 +12,14 @@ import {
 import { PodcastCardImage } from "./components";
 import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
+import { Header } from "@/presentation/components/Header";
 const podcastRepository = new PodcastRepositoryImpl();
 
 export const Home = () => {
   const { podcasts } = useGetPodcasts(getPodcastsResponse, podcastRepository);
   return (
     <MainWrapper>
+      <Header />
       <PodcastList>
         {podcasts.map((podcast: Podcast) => (
           <PodcastCard data-testid={"podcast-card"}>
