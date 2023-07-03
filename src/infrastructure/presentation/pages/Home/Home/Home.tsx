@@ -22,7 +22,10 @@ export const Home = () => {
       <Header />
       <PodcastList>
         {podcasts.map((podcast: Podcast) => (
-          <PodcastCard data-testid={"podcast-card"}>
+          <PodcastCard
+            data-testid={"podcast-card"}
+            key={podcast["im:name"].label}
+          >
             <PodcastImageWrapper>
               <PodcastCardImage
                 src={podcast["im:image"][2].label}
@@ -37,7 +40,7 @@ export const Home = () => {
                 textAlign={"center"}
                 ellipsis={true}
                 fontSize={"small"}
-                color={COLORS.GREY}
+                color={COLORS.DARK_GREY}
               >{`Author: ${podcast["im:artist"].label}`}</Text>
             </PodcastDetailsWrapper>
           </PodcastCard>
