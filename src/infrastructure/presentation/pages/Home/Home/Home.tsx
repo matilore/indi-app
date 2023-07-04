@@ -1,4 +1,4 @@
-import { useGetPodcasts } from "./hooks";
+import { useGetPodcasts, useFilteredPodcasts } from "./hooks";
 import { getPodcastsResponse } from "@/application/useCases/getPodcasts";
 import { PodcastRepositoryImpl } from "@/infrastructure/api/podcastRepositoryImpl";
 import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
@@ -25,12 +25,17 @@ export const Home = () => {
     PodcastListAdapter
   );
 
+  const { filteredPodcasts, setSearchTerm } = useFilteredPodcasts(podcasts);
+
   return (
     <MainWrapper>
       <Header />
-      <SearchBar podcastNumber={podcasts.length} />
+      <SearchBar
+        setSearchTerm={setSearchTerm}
+        podcastNumber={filteredPodcasts.length}
+      />
       <PodcastList>
-        {podcasts.map(({ img, title, author }: PodcastListItem) => (
+        {filteredPodcasts.map(({ img, title, author }: PodcastListItem) => (
           <PodcastCard data-testid={"podcast-card"} key={title}>
             <PodcastImageWrapper>
               <PodcastCardImage src={img} title={`${title} image`} />
