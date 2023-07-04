@@ -196,6 +196,64 @@ const MOCKED_ADAPTED_RESPONSE = [
   },
 ];
 
+const MOCKED_EXPECTED_FILTERED_RESPONSE = [
+  {
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f2/21/fa/f221fabd-017f-5125-633b-f1fe4f39802a/mza_182995249085044287.jpg/170x170bb.png",
+    title: "The Joe Budden Podcast",
+    author: "The Joe Budden Network",
+  },
+  {
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts112/v4/f4/53/be/f453be7f-2a34-0617-7bc1-bc57d9b747fc/mza_6548891788110664288.jpg/170x170bb.png",
+    title: "60 Songs That Explain the '90s",
+    author: "The Ringer",
+  },
+  {
+    img: "https://is2-ssl.mzstatic.com/image/thumb/Podcasts116/v4/e0/b0/b9/e0b0b99b-30bd-842b-aa50-60aa9d4f2614/mza_7275470718539560059.jpg/170x170bb.png",
+    title: "Being Black- The '80s",
+    author: "theGrio",
+  },
+  {
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts112/v4/9f/fb/91/9ffb916a-af0d-0fb8-3646-57eeda5314c3/mza_945735870779170317.jpeg/170x170bb.png",
+    title: '"See, The Thing Is..."',
+    author: "All The Things Productions",
+  },
+  {
+    img: "https://is3-ssl.mzstatic.com/image/thumb/Podcasts126/v4/be/41/b6/be41b6fa-0d77-2a72-57d6-506e09d8bb69/mza_14544752427345926888.jpg/170x170bb.png",
+    title: "Here's The Thing with Alec Baldwin",
+    author: "iHeartPodcasts",
+  },
+  {
+    img: "https://is4-ssl.mzstatic.com/image/thumb/Podcasts116/v4/c6/1c/7c/c61c7c13-a82d-68f9-2a32-d7a70fd7e78f/mza_2400450415291571632.jpg/170x170bb.png",
+    title: "Bandsplain",
+    author: "The Ringer",
+  },
+  {
+    img: "https://is5-ssl.mzstatic.com/image/thumb/Podcasts126/v4/11/1b/9f/111b9f79-e69d-a1e9-4846-12edd7bdc91e/mza_16560460372813821719.jpg/170x170bb.png",
+    title: "Every Single Album",
+    author: "The Ringer",
+  },
+  {
+    img: "https://is2-ssl.mzstatic.com/image/thumb/Podcasts122/v4/0f/95/2b/0f952b75-2da3-a1a4-55ee-5e24eb34a2ed/mza_16604615367747989507.jpg/170x170bb.png",
+    title: "Ebro in the Morning Podcast",
+    author: "HOT 97's Ebro in the Morning",
+  },
+  {
+    img: "https://is2-ssl.mzstatic.com/image/thumb/Podcasts115/v4/0d/00/3d/0d003d69-71dc-54ac-2e49-71344d581ebc/mza_17414366298101550888.jpeg/170x170bb.png",
+    title: "Popcast",
+    author: "The New York Times",
+  },
+  {
+    img: "https://is4-ssl.mzstatic.com/image/thumb/Podcasts116/v4/06/72/c9/0672c949-e262-23b2-8c29-3db1def67d20/mza_4917860291183321531.jpg/170x170bb.png",
+    title: "R&B Money",
+    author: "The Black Effect and iHeartPodcasts",
+  },
+  {
+    img: "https://is4-ssl.mzstatic.com/image/thumb/Podcasts125/v4/58/60/74/58607414-6263-9fa9-4fad-d5879c071643/mza_11208751241845350981.jpeg/170x170bb.png",
+    title: "Sticky Notes: The Classical Music Podcast",
+    author: "Joshua Weilerstein",
+  },
+];
+
 describe("utils", () => {
   describe("checkDataExpiration", () => {
     it("should check if local storage data lifespam is expired", () => {
@@ -268,38 +326,7 @@ describe("utils", () => {
         MOCKED_ADAPTED_RESPONSE
       );
 
-      expect(filteredPodcasts).toMatchObject([
-        {
-          img: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f2/21/fa/f221fabd-017f-5125-633b-f1fe4f39802a/mza_182995249085044287.jpg/170x170bb.png",
-          title: "The Joe Budden Podcast",
-          author: "The Joe Budden Network",
-        },
-        {
-          img: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts112/v4/f4/53/be/f453be7f-2a34-0617-7bc1-bc57d9b747fc/mza_6548891788110664288.jpg/170x170bb.png",
-          title: "60 Songs That Explain the '90s",
-          author: "The Ringer",
-        },
-        {
-          img: "https://is4-ssl.mzstatic.com/image/thumb/Podcasts116/v4/c6/1c/7c/c61c7c13-a82d-68f9-2a32-d7a70fd7e78f/mza_2400450415291571632.jpg/170x170bb.png",
-          title: "Bandsplain",
-          author: "The Ringer",
-        },
-        {
-          img: "https://is5-ssl.mzstatic.com/image/thumb/Podcasts126/v4/11/1b/9f/111b9f79-e69d-a1e9-4846-12edd7bdc91e/mza_16560460372813821719.jpg/170x170bb.png",
-          title: "Every Single Album",
-          author: "The Ringer",
-        },
-        {
-          img: "https://is2-ssl.mzstatic.com/image/thumb/Podcasts115/v4/0d/00/3d/0d003d69-71dc-54ac-2e49-71344d581ebc/mza_17414366298101550888.jpeg/170x170bb.png",
-          title: "Popcast",
-          author: "The New York Times",
-        },
-        {
-          img: "https://is4-ssl.mzstatic.com/image/thumb/Podcasts116/v4/06/72/c9/0672c949-e262-23b2-8c29-3db1def67d20/mza_4917860291183321531.jpg/170x170bb.png",
-          title: "R&B Money",
-          author: "The Black Effect and iHeartPodcasts",
-        },
-      ]);
+      expect(filteredPodcasts).toMatchObject(MOCKED_EXPECTED_FILTERED_RESPONSE);
     });
   });
 });

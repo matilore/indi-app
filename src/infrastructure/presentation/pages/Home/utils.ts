@@ -39,4 +39,12 @@ export const setLocalStorageData = (podcasts: Podcast[]) => {
 export const handleFilterPodcasts = (
   searchTerm: string,
   podcastsList: PodcastListItem[]
-) => {};
+) => {
+  const filteredPodcasts = podcastsList.filter(
+    (podcast) =>
+      podcast.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      podcast.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return filteredPodcasts;
+};
