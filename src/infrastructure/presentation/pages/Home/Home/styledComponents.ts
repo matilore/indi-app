@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { responsivePadding } from "@/presentation/styles/constants";
 
 export const MainWrapper = styled.div`
   width: 100%;
@@ -9,11 +10,12 @@ export const MainWrapper = styled.div`
 `;
 
 export const PodcastList = styled.div`
-  max-width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
+  box-sizing: border-box;
+  ${responsivePadding}
 `;
 
 export const PodcastCard = styled.div`

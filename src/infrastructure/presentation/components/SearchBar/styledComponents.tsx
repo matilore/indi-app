@@ -1,9 +1,14 @@
 import { COLORS } from "@/presentation/styles/constants";
 import styled from "styled-components";
+import { responsivePadding } from "@/presentation/styles/constants";
 
 export const SearchBarWrapper = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: flex-end;
+  justify-content: flex-end;
+  margin-top: 24px;
+  box-sizing: border-box;
+  ${responsivePadding}
 `;
 
 export const SearchInput = styled.input`
@@ -14,4 +19,17 @@ export const SearchInput = styled.input`
 
 export const PodcastNumberBadge = styled.span`
   background-color: ${COLORS.BLUE};
+  border-radius: 5px;
+  color: ${COLORS.WHITE};
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin-right: 16px;
+  padding: 4px;
+`;
+
+export const SearchBarContentWrapper = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 `;
