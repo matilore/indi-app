@@ -3,10 +3,15 @@ import { useSearchParams as mockUseSearchParams } from "react-router-dom";
 import { useFilteredPodcasts } from "./useFilteredPodcasts";
 import * as utils from "../utils";
 
-const searchParams = { s: "the" };
+const searchParams: { [key: string]: string } = { s: "the" };
+
 vi.mock("react-router-dom", () => ({
   ...(vi.importActual("react-router-dom") as object),
-  useSearchParams: () => [searchParams],
+  useSearchParams: vi.fn().mockImplementation(() => [
+    {
+      get: vi.fn().mockImplementation((param: string) => searchParams[param]),
+    },
+  ]),
 }));
 
 const MOCKED_EXPECTED_RESPONSE = [
@@ -19,7 +24,7 @@ const MOCKED_EXPECTED_RESPONSE = [
 
 describe("useFilteredPodcasts", () => {
   afterEach(() => {
-    vi.resetAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should call useSearchParams to check existing search params", () => {
@@ -28,7 +33,7 @@ describe("useFilteredPodcasts", () => {
   });
 
   it("should call handleFilterPodcasts with the proper search term", () => {
-    const spied = vi.spyOn(utils, handleFilterPodcasts);
+    const spied = vi.spyOn(utils, "handleFilterPodcasts");
     renderHook(() => useFilteredPodcasts(MOCKED_EXPECTED_RESPONSE));
     expect(spied).toHaveBeenCalledWith("the");
   });

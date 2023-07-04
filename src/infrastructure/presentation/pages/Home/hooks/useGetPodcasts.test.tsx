@@ -25,7 +25,7 @@ describe("useGetPodcasts", () => {
 
   afterEach(() => {
     localStorage.clear();
-    vi.resetAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should call getAllPodcasts method of podcastRepository if podcasts in local storage is null", async () => {
