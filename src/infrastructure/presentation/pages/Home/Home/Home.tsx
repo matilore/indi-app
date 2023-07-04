@@ -24,8 +24,6 @@ export const Home = () => {
     PodcastListAdapter
   );
 
-  console.log(podcasts);
-
   return (
     <MainWrapper>
       <Header />

@@ -328,5 +328,16 @@ describe("utils", () => {
 
       expect(filteredPodcasts).toMatchObject(MOCKED_EXPECTED_FILTERED_RESPONSE);
     });
+
+    it("should correctly return an empty array if there is not match with search term", () => {
+      const term = "the chumbawamba";
+
+      const filteredPodcasts = handleFilterPodcasts(
+        term,
+        MOCKED_ADAPTED_RESPONSE
+      );
+
+      expect(filteredPodcasts).toMatchObject([]);
+    });
   });
 });
