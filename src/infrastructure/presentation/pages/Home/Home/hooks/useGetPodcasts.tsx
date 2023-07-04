@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PodcastRepository, Podcast } from "@/domain/interfaces";
-import { getLocalStorageData, setLocalStorageData } from "../utils";
+import { getLocalStorageData, setLocalStorageData } from "../../utils";
 import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
 import { PodcastListItem } from "@/presentation/adapters/podcast/contracts";
 

@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { useSearchParams as mockUseSearchParams } from "react-router-dom";
 import { useFilteredPodcasts } from "./useFilteredPodcasts";
-import * as utils from "../utils";
+import * as utils from "../../utils";
 
 const searchParams: { [key: string]: string } = { s: "the" };
 

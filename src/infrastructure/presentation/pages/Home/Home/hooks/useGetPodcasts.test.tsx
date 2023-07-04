@@ -3,7 +3,7 @@ import { getPodcastsResponse } from "@/application/useCases/getPodcasts";
 import { PodcastRepositoryImpl } from "@/infrastructure/api/podcastRepositoryImpl";
 import { useGetPodcasts } from "./useGetPodcasts";
 import { MOCKED_RESPONSE } from "@/infrastructure/api/constants";
-import { LOCAL_STORAGE_ITEM_NAME } from "../constants";
+import { LOCAL_STORAGE_ITEM_NAME } from "../../constants";
 import { Podcast } from "@/domain/interfaces";
 import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
 

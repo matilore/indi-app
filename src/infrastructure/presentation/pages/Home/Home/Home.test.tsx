@@ -1,12 +1,17 @@
 import { Home } from "./Home";
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import { MOCKED_RESPONSE } from "@/infrastructure/api/constants";
 import { MemoryRouter } from "react-router-dom";
 import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
+import * as hooks from "./hooks";
 
 vi.mock("@/infrastructure/api/podcastRepositoryImpl");
 
 describe("Home", () => {
+  afterEach(() => {
+    vi.resetAllMocks();
+  });
+
   const podcast = new PodcastListAdapter(MOCKED_RESPONSE[0]).toJSON();
   it("should display podcast cards", async () => {
     const { findAllByTestId } = render(
@@ -48,5 +53,20 @@ describe("Home", () => {
     );
     const podcastAuthor = await findByText(`Author: ${podcast.author}`);
     expect(podcastAuthor).toBeDefined();
+  });
+
+  it("should invoke both useGetPodcasts and useFilteredPodcasts hooks whith initial render", async () => {
+    const spiedGetter = vi.spyOn(hooks, "useGetPodcasts");
+    const spiedFilter = vi.spyOn(hooks, "useFilteredPodcasts");
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(spiedGetter).toHaveBeenCalled();
+      expect(spiedFilter).toHaveBeenCalled();
+    });
   });
 });

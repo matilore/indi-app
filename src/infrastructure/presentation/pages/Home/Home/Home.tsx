@@ -1,4 +1,4 @@
-import { useGetPodcasts } from "../hooks/useGetPodcasts";
+import { useGetPodcasts } from "./hooks";
 import { getPodcastsResponse } from "@/application/useCases/getPodcasts";
 import { PodcastRepositoryImpl } from "@/infrastructure/api/podcastRepositoryImpl";
 import { PodcastListAdapter } from "@/presentation/adapters/podcast/podcastListAdapter";
@@ -15,6 +15,7 @@ import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
 import { Header } from "@/presentation/components/Header";
 import { SearchBar } from "@/presentation/components/SearchBar";
+
 const podcastRepository = new PodcastRepositoryImpl();
 
 export const Home = () => {
