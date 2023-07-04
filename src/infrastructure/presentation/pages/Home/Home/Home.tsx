@@ -23,6 +23,7 @@ export const Home = () => {
     podcastRepository,
     PodcastListAdapter
   );
+
   return (
     <MainWrapper>
       <Header />

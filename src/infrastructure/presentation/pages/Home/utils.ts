@@ -34,3 +34,5 @@ export const setLocalStorageData = (podcasts: Podcast[]) => {
   const stringifiedPodcasts = JSON.stringify(localStorageItem);
   localStorage.setItem(LOCAL_STORAGE_ITEM_NAME, stringifiedPodcasts);
 };
+
+export const handleFilterPodcasts = (searchTerm: string) => {};
