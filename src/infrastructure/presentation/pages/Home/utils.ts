@@ -1,5 +1,6 @@
 import { Podcast } from "@/domain/interfaces";
 import { LOCAL_STORAGE_ITEM_NAME } from "./constants";
+import { PodcastListItem } from "@/presentation/adapters/podcast/contracts";
 
 export const setExpirationLocalStorageItem = (hours: number) =>
   new Date().getTime() + hours * 60 * 60 * 1000;
@@ -35,4 +36,7 @@ export const setLocalStorageData = (podcasts: Podcast[]) => {
   localStorage.setItem(LOCAL_STORAGE_ITEM_NAME, stringifiedPodcasts);
 };
 
-export const handleFilterPodcasts = (searchTerm: string) => {};
+export const handleFilterPodcasts = (
+  searchTerm: string,
+  podcastsList: PodcastListItem[]
+) => {};
