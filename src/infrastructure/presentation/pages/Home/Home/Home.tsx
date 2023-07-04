@@ -8,12 +8,11 @@ import {
   PodcastImageWrapper,
   PodcastDetailsWrapper,
   PodcastList,
-  MainWrapper,
+  PodcastCardLink,
 } from "./styledComponents";
 import { PodcastCardImage } from "./components";
 import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
-import { Header } from "@/presentation/components/Header";
 import { SearchBar } from "@/presentation/components/SearchBar";
 
 const podcastRepository = new PodcastRepositoryImpl();
@@ -28,32 +27,33 @@ export const Home = () => {
   const { filteredPodcasts, setSearchTerm } = useFilteredPodcasts(podcasts);
 
   return (
-    <MainWrapper>
-      <Header />
+    <>
       <SearchBar
         setSearchTerm={setSearchTerm}
         podcastNumber={filteredPodcasts.length}
       />
       <PodcastList>
-        {filteredPodcasts.map(({ img, title, author }: PodcastListItem) => (
-          <PodcastCard data-testid={"podcast-card"} key={title}>
-            <PodcastImageWrapper>
-              <PodcastCardImage src={img} title={`${title} image`} />
-            </PodcastImageWrapper>
-            <PodcastDetailsWrapper>
-              <Text ellipsis={true} textAlign={"center"}>
-                {title}
-              </Text>
-              <Text
-                textAlign={"center"}
-                ellipsis={true}
-                fontSize={"small"}
-                color={COLORS.DARK_GREY}
-              >{`Author: ${author}`}</Text>
-            </PodcastDetailsWrapper>
-          </PodcastCard>
+        {filteredPodcasts.map(({ id, img, title, author }: PodcastListItem) => (
+          <PodcastCardLink to={`/podcast/${id}`}>
+            <PodcastCard data-testid={"podcast-card"} key={title}>
+              <PodcastImageWrapper>
+                <PodcastCardImage src={img} title={`${title} image`} />
+              </PodcastImageWrapper>
+              <PodcastDetailsWrapper>
+                <Text ellipsis={true} textAlign={"center"}>
+                  {title}
+                </Text>
+                <Text
+                  textAlign={"center"}
+                  ellipsis={true}
+                  fontSize={"small"}
+                  color={COLORS.DARK_GREY}
+                >{`Author: ${author}`}</Text>
+              </PodcastDetailsWrapper>
+            </PodcastCard>
+          </PodcastCardLink>
         ))}
       </PodcastList>
-    </MainWrapper>
+    </>
   );
 };

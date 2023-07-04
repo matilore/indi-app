@@ -1,11 +1,15 @@
 import { Podcast } from "@/domain/interfaces";
-import { PodcastListItem } from "./contracts";
+import { PodcastListItem } from "@/presentation/adapters/podcast/contracts";
 
 export class PodcastListAdapter {
   private podcastFromApi: Podcast;
 
   constructor(podcastFromApi: Podcast) {
     this.podcastFromApi = podcastFromApi;
+  }
+
+  get id() {
+    return this.podcastFromApi.id.attributes["im:id"];
   }
 
   get img() {
@@ -22,6 +26,7 @@ export class PodcastListAdapter {
 
   toJSON(): PodcastListItem {
     return {
+      id: this.id,
       img: this.img,
       title: this.title,
       author: this.author,

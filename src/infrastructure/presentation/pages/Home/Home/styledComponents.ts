@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import { responsivePadding } from "@/presentation/styles/constants";
-
-export const MainWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import { Link } from "react-router-dom";
 
 export const PodcastList = styled.div`
   width: 100%;
@@ -58,4 +51,9 @@ export const PodcastImageContainer = styled.div`
 export const PodcastImage = styled.img`
   width: 100%;
   height: 100%;
+`;
+
+export const PodcastCardLink = styled(Link)`
+  all: unset;
+  cursor: pointer;
 `;

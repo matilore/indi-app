@@ -19,7 +19,11 @@ export const SearchBar = ({
 }) => {
   const handleInputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
-    setSearchTerm({ s: searchTerm });
+    if (searchTerm) {
+      setSearchTerm({ s: searchTerm });
+    } else {
+      setSearchTerm({});
+    }
   };
 
   return (
