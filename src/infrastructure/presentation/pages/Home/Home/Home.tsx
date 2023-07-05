@@ -14,10 +14,14 @@ import { PodcastCardImage } from "./components";
 import { Text } from "@/presentation/styles/components";
 import { COLORS } from "@/presentation/styles/constants";
 import { SearchBar } from "@/presentation/components/SearchBar";
+import { useOutletContext } from "react-router-dom";
+import { OutletContext } from "@/presentation/layout/Layout";
 
 const podcastRepository = new PodcastRepositoryImpl();
 
 export const Home = () => {
+  const { handleNavigation } = useOutletContext<OutletContext>();
+
   const { podcasts } = useGetPodcasts(
     getPodcastsResponse,
     podcastRepository,
@@ -34,7 +38,7 @@ export const Home = () => {
       />
       <PodcastList>
         {filteredPodcasts.map(({ id, img, title, author }: PodcastListItem) => (
-          <PodcastCardLink to={`/podcast/${id}`}>
+          <PodcastCardLink onClick={handleNavigation(`/podcast/${id}`)}>
             <PodcastCard data-testid={"podcast-card"} key={title}>
               <PodcastImageWrapper>
                 <PodcastCardImage src={img} title={`${title} image`} />

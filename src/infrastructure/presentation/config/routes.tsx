@@ -11,12 +11,10 @@ export const routesConfig = [
       {
         path: ROUTES_PATHS.HOME,
         element: <Home />,
-        loadingMode: "render",
       },
       {
         path: ROUTES_PATHS.PODCAST_DETAILS,
         element: <PodcastDetails />,
-        loadingMode: "render",
       },
     ],
   },

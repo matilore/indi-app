@@ -53,7 +53,6 @@ export const PodcastImage = styled.img`
   height: 100%;
 `;
 
-export const PodcastCardLink = styled(Link)`
-  all: unset;
+export const PodcastCardLink = styled.div`
   cursor: pointer;
 `;
