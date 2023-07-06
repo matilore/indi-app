@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { responsivePadding } from "@/presentation/styles/constants";
-import { Link } from "react-router-dom";
 
-export const PodcastList = styled.div`
+export const PodcastListWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;

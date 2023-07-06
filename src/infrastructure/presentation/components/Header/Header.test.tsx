@@ -8,7 +8,7 @@ describe("Header", () => {
   it("should have a main link defined", () => {
     const { getByRole } = render(
       <MemoryRouter>
-        <Header />
+        <Header isPending={false} />
       </MemoryRouter>
     );
     const link = getByRole("link", { name: LINK_TEXT });
@@ -19,7 +19,7 @@ describe("Header", () => {
   it("should a link navigating to Home", () => {
     const { getByRole } = render(
       <MemoryRouter>
-        <Header />
+        <Header isPending={false} />
       </MemoryRouter>
     );
     const link = getByRole("link", { name: LINK_TEXT });

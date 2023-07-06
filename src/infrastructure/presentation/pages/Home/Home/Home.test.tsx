@@ -7,6 +7,16 @@ import * as hooks from "./hooks";
 
 vi.mock("@/infrastructure/api/podcastRepositoryImpl");
 
+vi.mock("react-router-dom", async () => {
+  const mod = (await vi.importActual("react-router-dom")) as object;
+  return {
+    ...mod,
+    useOutletContext: () => ({
+      handleNavigation: vi.fn(),
+    }),
+  };
+});
+
 describe("Home", () => {
   afterEach(() => {
     vi.resetAllMocks();

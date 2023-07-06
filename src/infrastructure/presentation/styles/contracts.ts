@@ -5,8 +5,8 @@ export type FontProps = {
   fontWeight?: Weight;
   color?: Color;
   displayBlock?: boolean;
-  ellipsis?: boolean;
-  textAlign?: string;
+  $ellipsis?: boolean;
+  $textAlign?: string;
 };
 
 type Weight = 400 | 500 | 700 | 800;
