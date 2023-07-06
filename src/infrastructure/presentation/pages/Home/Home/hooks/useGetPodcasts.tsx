@@ -22,9 +22,17 @@ export const useGetPodcasts = (
 
   useEffect(() => {
     const getPodcasts = async () => {
-      const podcastList = await getPodcastsResponse(podcastRepository);
-      setLocalStorageData(podcastList);
-      handleSetPodcast(podcastList);
+      try {
+        const podcastList = await getPodcastsResponse(podcastRepository);
+        setLocalStorageData(podcastList);
+        handleSetPodcast(podcastList);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error("There has been the following error: ", error.message);
+        } else {
+          console.error(error);
+        }
+      }
     };
 
     const storedData = getLocalStorageData();

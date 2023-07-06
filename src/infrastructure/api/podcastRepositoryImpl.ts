@@ -10,9 +10,13 @@ import {
 
 export class PodcastRepositoryImpl implements PodcastRepository {
   async getAllPodcasts(): Promise<Podcast[]> {
-    const res = await fetch(REACT_APP_API_PODCASTS_URL);
-    const response: PodcastsApiResponse = await res.json();
-    return response.feed.entry;
+    try {
+      const res = await fetch(REACT_APP_API_PODCASTS_URL);
+      const response: PodcastsApiResponse = await res.json();
+      return response.feed.entry;
+    } catch (error: unknown) {
+      throw new Error(error);
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

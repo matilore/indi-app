@@ -2,7 +2,7 @@ import { Podcast } from "@/domain/interfaces";
 
 export const PODCAST_NUMBER = 100;
 
-export const REACT_APP_API_PODCASTS_URL = `https://itunes.apple.com/us/rss/toppodcasts/limit=${PODCAST_NUMBER}/genre=1310/json`;
+export const REACT_APP_API_PODCASTS_URL = `https://itunes.appl.com/us/rss/toppodcasts/limit=${PODCAST_NUMBER}/genre=1310/json`;
 
 export const REACT_APP_API_PODCAST_DETAILS_URL = `https://itunes.apple.com/lookup?id=1535809341&entity=podcastEpisode`;
 
