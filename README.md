@@ -25,7 +25,7 @@ To start the development server:
 npm run dev
 ```
 
-### Development Server
+### Production Server
 
 To start the production server:
 
